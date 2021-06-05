@@ -1,0 +1,52 @@
+<div class="centered-content" style="margin-top: 100px;">
+  <div class="model-box">
+    <div class="title">
+      Login
+    </div>
+    <form class="form-section" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="input">
+        <input formControlName="email" name="email" type="email" placeholder="Your Email">
+      </div>
+
+      <div
+        *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)"
+        class="is-error">
+        <p *ngIf="loginForm.controls.email.errors.required" style="padding: 0 10px; margin: 0;">
+          Email is required.
+        </p>
+        <p *ngIf="loginForm.controls.email.errors.email" style="padding: 0 10px; margin: 0;">
+          Please check email address.
+        </p>
+      </div>
+
+      <div class="input">
+        <input formControlName="password" name="password" type="password" placeholder="Your Password" minlength="8">
+      </div>
+
+      <div
+        *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)"
+        class="is-error">
+        <p *ngIf="loginForm.controls.password.errors.required" style="padding: 0 10px; margin: 0;">
+          Password is required.
+        </p>
+        <p *ngIf="loginForm.controls.password.errors.minlength" style="padding: 0 10px; margin: 0;">
+          Password must be at least 8 characters long.
+        </p>
+      </div>
+
+      <div class="button">
+        <button [disabled]="!loginForm.valid">
+          Login
+        </button>
+      </div>
+    </form>
+    <p *ngIf="error" class="is-error" style="padding: 10px 0; margin: 0;">
+      {{error}}.
+    </p>
+    <p *ngIf="message" style="padding: 10px 0; margin: 0; color:rgba(black, 0.85)">
+      {{message}}.
+    </p>
+    <p class="linkMessage">Not got an account? <a routerLink="/signup">Sign up</a> now!</p>
+  </div>
+</div>

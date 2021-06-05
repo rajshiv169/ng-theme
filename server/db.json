@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name": "Shiv Bhagat",
+      "email": "rajshiv169@gmail.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "name": "Shiv Bhagat",
+      "email": "rajshiv169aaaaa@gmail.com",
+      "password": "aspomnzx",
+      "id": 2
+    },
+    {
+      "name": "Shiv Bhagat",
+      "email": "rajshiv1691@gmail.com",
+      "password": "12345678",
+      "id": 3
+    }
+  ]
+}

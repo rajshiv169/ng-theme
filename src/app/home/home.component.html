@@ -1,0 +1,65 @@
+<div class="home-container">
+  <p>
+    This project is used as an example for creating different themes in angular. This project/app
+    contains input fields, bottons, hyperlinks, table, sidebar, navbar, footer, etc. And demo like sign,
+    login, dashboard where a simple flow of the project is created to make it more realistic to like a
+    working project/app.
+    <br>
+    Now let's see some examples of where theming is applied.
+  </p>
+
+  <h2>1. Table</h2>
+  <div class="content">
+    <table>
+      <tr>
+        <th *ngFor="let col of tableHead">{{col}}</th>
+      </tr>
+      <tr *ngFor="let data of tableData">
+        <td>{{data.Name}}</td>
+        <td>{{data.Email}}</td>
+        <td>{{data.Company}}</td>
+        <td>{{data.Phone}}</td>
+      </tr>
+    </table>
+  </div>
+  <h2>2. Input</h2>
+  <div class="content">
+    <form (submit)="onSubmit()">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" [(ngModel)]="fname"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" [(ngModel)]="lname"><br><br>
+      <button type="submit" class="button button-outline midnight-blue">Submit</button>
+      <p>The form value is: {{fname}} {{lname}}</p>
+    </form>
+  </div>
+
+  <h2>3. Buttons</h2>
+  <div class="content">
+    <h2 style="margin: 10px 0;">a. Outline buttons</h2>
+    <div class="button-container">
+      <button class="button button-outline mlr-10 green">Submit</button>
+      <button class="button button-outline mlr-10 blue">Submit</button>
+      <button class="button button-outline mlr-10 red">Submit</button>
+      <button class="button button-outline mlr-10 midnight-blue">Submit</button>
+      <button class="button button-outline mlr-10 turquoise">Submit</button>
+    </div>
+    <h2 style="margin: 20px 0 10px;">b. Buttons</h2>
+    <div class="button-container">
+      <button class="button button-filled mlr-10 filled-green">Submit</button>
+      <button class="button button-filled mlr-10 filled-blue">Submit</button>
+      <button class="button button-filled mlr-10 filled-red">Submit</button>
+      <button class="button button-filled mlr-10 filled-midnight-blue">Submit</button>
+      <button class="button button-filled mlr-10 filled-turquoise">Submit</button>
+    </div>
+
+    <h2 style="margin: 20px 0 10px;">b. Different sizes</h2>
+    <div class="button-container">
+      <button class="button button-filled mlr-10 filled-green">Submit</button>
+      <button class="button button-filled mlr-10 filled-blue p12-24">Submit</button>
+      <button class="button button-filled mlr-10 filled-red p14-28">Submit</button>
+      <button class="button button-filled mlr-10 filled-midnight-blue p16-32">Submit</button>
+      <button class="button button-filled mlr-10 filled-turquoise p18-36">Submit</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="centered-content">
+  <div class="model-box">
+    <div class="title">
+      Sign Up
+    </div>
+    <form class="form-section" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <div class="input">
+        <input formControlName="name" name="name" type="text" placeholder="Your Name" minlength="3">
+      </div>
+
+      <div
+				*ngIf="signupForm.controls.name.invalid && (signupForm.controls.name.dirty || signupForm.controls.name.touched)"
+				class="is-error">
+				<p *ngIf="signupForm.controls.name.errors.required" style="padding: 0 10px; margin: 0;">
+					Name is required.
+				</p>
+				<p *ngIf="signupForm.controls.name.errors.minlength" style="padding: 0 10px; margin: 0;">
+					Name must be at least 3 characters long.
+				</p>
+			</div>
+
+      <div class="input">
+        <input formControlName="email" name="email" type="email" placeholder="Your Email">
+      </div>
+
+      <div
+				*ngIf="signupForm.controls.email.invalid && (signupForm.controls.email.dirty || signupForm.controls.email.touched)"
+				class="is-error">
+				<p *ngIf="signupForm.controls.email.errors.required" style="padding: 0 10px; margin: 0;">
+					Email is required.
+				</p>
+				<p *ngIf="signupForm.controls.email.errors.email" style="padding: 0 10px; margin: 0;">
+					Please check email address.
+				</p>
+			</div>
+
+      <div class="input">
+        <input formControlName="password" name="password" type="password" placeholder="Your Password" minlength="8">
+      </div>
+
+      <div
+				*ngIf="signupForm.controls.password.invalid && (signupForm.controls.password.dirty || signupForm.controls.password.touched)"
+				class="is-error">
+				<p *ngIf="signupForm.controls.password.errors.required" style="padding: 0 10px; margin: 0;">
+					Password is required.
+				</p>
+				<p *ngIf="signupForm.controls.password.errors.minlength" style="padding: 0 10px; margin: 0;">
+					Password must be at least 8 characters long.
+				</p>
+			</div>
+
+      <div class="input">
+        <input formControlName="passwordConfirm" name="passwordConfirm" type="password" placeholder="Confirm Password"
+          minlength="8">
+      </div>
+
+      <div
+				*ngIf="signupForm.controls.passwordConfirm.invalid && (signupForm.controls.passwordConfirm.dirty || signupForm.controls.passwordConfirm.touched)"
+				class="is-error">
+				<p *ngIf="signupForm.controls.passwordConfirm.errors.required" style="padding: 0 10px; margin: 0;">
+					Confirm password is required.
+				</p>
+				<p *ngIf="signupForm.controls.passwordConfirm.errors.minlength" style="padding: 0 10px; margin: 0;">
+					Confirm password must be at least 8 char<br>long.
+				</p>
+			</div>
+
+      <div *ngIf="signupForm.errors?.mismatch && (signupForm.controls.passwordConfirm.dirty || signupForm.controls.passwordConfirm.touched) && (!signupForm.controls.passwordConfirm.errors?.minlength && !signupForm.controls.passwordConfirm.errors?.required)">
+        <p class="is-error" style="padding: 0 10px; margin: 0;">
+					Check your password and confirm password.
+				</p>
+      </div>
+
+      <div class="button">
+        <button [disabled]="!signupForm.valid">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <p *ngIf="error" class="is-error" style="padding: 0 10px; margin: 0;">
+      {{error}}.
+    </p>
+    <p *ngIf="message" style="padding: 0 10px; margin: 0; color:rgba(black, 0.85)">
+      {{message}}.
+    </p>
+    <p class="linkMessage">Already got an account? <a routerLink="/login">Login</a> now!</p>
+  </div>
+</div>
